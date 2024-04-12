@@ -1,35 +1,37 @@
 package org.example.toworkspring.Controllers;
 
 import org.example.toworkspring.DB;
-import org.springframework.stereotype.Controller;
+import org.example.toworkspring.Utils;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.util.List;
+import java.util.Map;
 
-@Controller
+@RestController
 public class TrackController {
     @GetMapping("/")
-    public String tracks() {
-        try (var connection =  DB.connect()){
-            System.out.println("Connected to the PostgreSQL database.");
-            Statement statement = connection.createStatement();
-            ResultSet result = statement.executeQuery("select * from appuser");
+    public List<Map<String, Object>> tracks() {
+        ResultSet resultSet = null;
+        Statement statement = null;
+        Connection connection = null;
 
-            while (result.next()) {
-                System.out.println(result.getString(1) + " " + result.getString(2) + " " + result.getString(3));
-            }
+        try {
+            connection = DB.connect();
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery("select * from appuser");
 
-            result.close();
-            statement.close();
-            connection.close();
+            List<Map<String, Object>> json = Utils.serializeResultSet(resultSet);
 
+            return json;
         } catch (SQLException e) {
             System.err.println(e.getMessage());
+        } finally {
+            try { if (resultSet != null) resultSet.close(); } catch (Exception e) {System.err.println(e.getMessage());}
+            try { if (statement != null) statement.close(); } catch (Exception e) {System.err.println(e.getMessage());}
+            try { if (connection != null) connection.close(); } catch (Exception e) {System.err.println(e.getMessage());}
         }
-
-        return "tracks";
+        return null;
     }
 }
