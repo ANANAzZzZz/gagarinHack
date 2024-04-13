@@ -3,9 +3,7 @@ package org.example.toworkspring.models;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Getter
 @Setter
@@ -14,4 +12,15 @@ import javax.persistence.Table;
 public class Userdiscount {
     @EmbeddedId
     private UserdiscountId id;
+
+    @MapsId("iduser")
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "iduser", nullable = false)
+    private AppUser iduser;
+
+    @MapsId("iddiscount")
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "iddiscount", nullable = false)
+    private Discount iddiscount;
+
 }

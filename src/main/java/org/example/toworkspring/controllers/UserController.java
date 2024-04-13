@@ -1,7 +1,7 @@
 package org.example.toworkspring.controllers;
 
 import lombok.RequiredArgsConstructor;
-import org.example.toworkspring.models.User;
+import org.example.toworkspring.models.AppUser;
 import org.example.toworkspring.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +24,7 @@ public class UserController {
 
 
     @PostMapping("/registration")
-    public String createUser(User user) {
+    public String createUser(AppUser user) {
         userService.createUser(user);
         return "redirect:/login";
     }

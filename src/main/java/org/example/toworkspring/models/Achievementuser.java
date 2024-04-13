@@ -12,10 +12,11 @@ import javax.persistence.*;
 public class Achievementuser {
     @EmbeddedId
     private AchievementuserId id;
+
     @MapsId("iduser")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "iduser", nullable = false)
-    private Appuser iduser;
+    private AppUser iduser;
 
     @MapsId("idachievement")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)

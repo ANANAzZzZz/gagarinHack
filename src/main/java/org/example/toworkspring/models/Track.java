@@ -9,8 +9,17 @@ import javax.validation.constraints.NotNull;
 @Getter
 @Setter
 @Entity
-@Table(name = "appuser", schema = "public")
-public class Appuser {
+@Table(name = "track", schema = "public")
+public class Track {
+
+    public Track(){
+        this(0, "", 0);
+    }
+    public Track(Integer _id, String _name, Integer _quantitymodels){
+        id = _id;
+        name = _name;
+        quantitymodels = _quantitymodels;
+    }
     @Id
     @Column(name = "id", nullable = false)
     private Integer id;
@@ -21,13 +30,7 @@ public class Appuser {
     private String name;
 
     @NotNull
-    @Lob
-    @Column(name = "last_name", nullable = false)
-    private String lastName;
-
-    @NotNull
-    @Lob
-    @Column(name = "hashpassword", nullable = false)
-    private String hashpassword;
+    @Column(name = "quantitymodels", nullable = false)
+    private Integer quantitymodels;
 
 }

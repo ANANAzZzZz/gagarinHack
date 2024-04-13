@@ -17,7 +17,7 @@ public class Usersprogress {
     @MapsId("iduser")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "iduser", nullable = false)
-    private Appuser iduser;
+    private AppUser iduser;
 
     @MapsId("id")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
