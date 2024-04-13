@@ -32,19 +32,19 @@ class TrackService(
 
     fun updateProgress(idUser: Int, idTrack: Int, numberModule: Int, numberPage: Int): Map<String, String> {
         val usersProgress = userProgressRepository.findProgress(idUser, idTrack, numberModule)
-        try {
-            if (usersProgress != null) {
-                usersProgress.numberlastcompletepage = numberPage
-                userProgressRepository.save(usersProgress)
-            } else {
-                val module = moduleRepository.findById_IdtrackAndId_Numberintrack(idTrack, numberModule)
-                userProgressRepository.save(
-                    Usersprogress(
-                        userRepository.getById(idUser.toLong()),
-                        module,
-                        numberPage,
-                        module.quantitypages
-                    )
+        
+        if (usersProgress != null){
+            usersProgress.numberlastcompletepage = numberPage
+            userProgressRepository.save(usersProgress)
+        } else {
+            val module = moduleRepository.findById_IdtrackAndId_Numberintrack(idTrack, numberModule)
+            println("module: $module")
+            userProgressRepository.save(
+                Usersprogress(
+                    userRepository.getById(idUser.toLong()).also { println("user: $it") },
+                    module,
+                    numberPage,
+                    module.quantitypages
                 )
             }
 
