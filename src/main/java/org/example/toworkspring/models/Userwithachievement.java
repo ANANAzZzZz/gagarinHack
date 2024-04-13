@@ -17,5 +17,4 @@ public class Userwithachievement {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id_achievements", nullable = false)
     private Achievement idAchievements;
-
 }

@@ -1,4 +1,4 @@
-package org.example.toworkspring;
+package org.example.toworkspring.org.example.toworkspring;
 
 import javax.persistence.*
 
@@ -9,5 +9,4 @@ open class Dirt {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     open var id: Long? = null
-
 }
