@@ -1,7 +1,9 @@
 package org.example.toworkspring.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -10,6 +12,7 @@ import javax.validation.constraints.NotNull;
 @Setter
 @Entity
 @Table(name = "page", schema = "public")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Page {
     @EmbeddedId
     private PageId id;
@@ -24,11 +27,13 @@ public class Page {
 
     @NotNull
     @Lob
+    @Type(type = "org.hibernate.type.TextType")
     @Column(name = "content", nullable = false)
     private String content;
 
     @NotNull
     @Lob
+    @Type(type = "org.hibernate.type.TextType")
     @Column(name = "name", nullable = false)
     private String name;
 

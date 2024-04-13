@@ -17,12 +17,12 @@ public class UserService {
     private final PasswordEncoder passwordEncoder;
 
     public boolean createUser(AppUser user) {
-        String userEmail = user.getEmail();
-        if (userRepository.findByEmail(userEmail) != null) return false;
-        user.setActive(true);
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        log.info("Saving new User with email: {}", userEmail);
-        userRepository.save(user);
+//        String userEmail = user.getEmail();
+//        if (userRepository.findByEmail(userEmail) != null) return false;
+//        user.setActive(true);
+//        user.setPassword(passwordEncoder.encode(user.getPassword()));
+//        log.info("Saving new User with email: {}", userEmail);
+//        userRepository.save(user);
         return true;
     }
     public List<AppUser> getAllUser() {

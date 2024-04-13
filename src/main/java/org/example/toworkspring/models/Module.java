@@ -12,6 +12,7 @@ import javax.validation.constraints.NotNull;
 @Setter
 @Entity
 @Table(name = "module", schema = "public")
+
 //@NamedQueries({
 //        @NamedQuery(name = "Module.findDistinctById_Idtrack", query = "select distinct m from  m where m.id.idtrack = :idtrack")
 //})
@@ -58,4 +59,14 @@ public class Module {
     @Type(type = "org.hibernate.type.IntegerType")
     @Column(name = "idtrack_id", nullable = false)
     private Integer idTrackId;
+
+    public Module(){
+        this.endcontent = "";
+        this.name = "";
+        this.id = new ModuleId();
+        this.startcontent = "";
+        this.quantitycoins = 0;
+        this.quantitypages = 0;
+        this.idtrack = new Track();
+    }
 }
