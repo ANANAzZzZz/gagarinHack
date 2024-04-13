@@ -14,9 +14,12 @@ public class Page {
     @EmbeddedId
     private PageId id;
 
-    @MapsId("idtrack")
+//    @MapsId("idtrack")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "idtrack", nullable = false)
+    @JoinColumns({
+            @JoinColumn(name = "idtrack", nullable = false, updatable = false, insertable = false),
+            @JoinColumn(name = "numberinmodule", nullable = false, updatable = false, insertable = false)
+    })
     private Module idtrack;
 
     @NotNull

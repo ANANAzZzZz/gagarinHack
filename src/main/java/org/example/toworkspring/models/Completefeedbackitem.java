@@ -2,8 +2,6 @@ package org.example.toworkspring.models;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 
@@ -15,10 +13,12 @@ public class Completefeedbackitem {
     @EmbeddedId
     private CompletefeedbackitemId id;
 
-    @MapsId("idfeedback")
+//    @MapsId("idfeedback")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    @JoinColumn(name = "idfeedback", nullable = false)
+    @JoinColumns({
+            @JoinColumn(name = "iduser", nullable = false, updatable = false, insertable = false),
+            @JoinColumn(name = "idfeedback", nullable = false, updatable = false, insertable = false)
+    })
     private Completefeedback idfeedback;
 
     @Lob
