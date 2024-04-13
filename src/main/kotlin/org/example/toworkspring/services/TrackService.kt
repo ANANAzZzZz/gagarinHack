@@ -1,6 +1,7 @@
 package org.example.toworkspring.services
 
 import lombok.RequiredArgsConstructor
+import org.example.toworkspring.models.Knowledge
 import org.example.toworkspring.models.Module
 import org.example.toworkspring.models.Track
 import org.example.toworkspring.models.Usersprogress
@@ -14,7 +15,8 @@ class TrackService(
     private val moduleRepository: ModuleRepository,
     private val pageRepository: PageRepository,
     private val userProgressRepository: UserProgressRepository,
-    private val userRepository: UserRepository
+    private val userRepository: UserRepository,
+    private val knowledgeRepository: KnowledgeRepository
 ) {
 
     fun getAllTracks(page: Int, pageSize: Int): MutableIterable<Track> {
@@ -28,8 +30,9 @@ class TrackService(
     fun getPagesInModules(numberModule: Long, idTrack: Long) =
         pageRepository.getPages(numberModule.toInt(), idTrack.toInt())
 
-    fun updateProgress(idUser: Int, idTrack: Int, numberModule: Int, numberPage: Int) {
+    fun updateProgress(idUser: Int, idTrack: Int, numberModule: Int, numberPage: Int): Map<String, String> {
         val usersProgress = userProgressRepository.findProgress(idUser, idTrack, numberModule)
+        
         if (usersProgress != null){
             usersProgress.numberlastcompletepage = numberPage
             userProgressRepository.save(usersProgress)
@@ -43,7 +46,13 @@ class TrackService(
                     numberPage,
                     module.quantitypages
                 )
-            )
+            }
+
+            return hashMapOf("message" to "success")
+        } catch (e: Exception) {
+            return hashMapOf("message" to e.message.orEmpty())
         }
     }
+
+    fun getListKnowledge() = knowledgeRepository.findAll().toList()
 }
