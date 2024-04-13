@@ -15,6 +15,7 @@ import java.util.Objects;
 @Embeddable
 public class ModuleId implements Serializable {
     private static final long serialVersionUID = 7342485325754781693L;
+
     @NotNull
     @Column(name = "idtrack", nullable = false)
     private Integer idtrack;

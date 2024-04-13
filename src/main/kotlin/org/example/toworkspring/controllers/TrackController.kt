@@ -1,5 +1,6 @@
 package org.example.toworkspring.controllers
 
+import org.example.toworkspring.models.Module
 import org.example.toworkspring.models.Track
 import org.example.toworkspring.services.TrackService
 import org.springframework.web.bind.annotation.GetMapping
@@ -14,7 +15,14 @@ class TrackController(private val trackService: TrackService) {
     fun getTracks(
         @RequestParam(value = "page", defaultValue = "0") @Min(0) page: Int,
         @RequestParam(value = "pageSize", defaultValue = "20") @Min(0) @Max(50) pageSize: Int
-    ): MutableList<Track> {
-        return trackService.getAllTracks(page, pageSize).toMutableList()
+    ): List<Track> {
+        return trackService.getAllTracks(page, pageSize).toList()
+    }
+
+    @GetMapping("/getModules")
+    fun getModulesInTrack(
+        @RequestParam(value = "idTrack") idTrack: Int
+    ): List<Module> {
+        return trackService.getModulesForTrack(idTrack)
     }
 }
