@@ -1,4 +1,4 @@
-package org.example.toworkspring.Controllers;
+package org.example.toworkspring.controllers;
 
 import lombok.RequiredArgsConstructor;
 import org.example.toworkspring.models.User;
