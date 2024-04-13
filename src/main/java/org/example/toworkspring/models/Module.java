@@ -12,9 +12,10 @@ import javax.validation.constraints.NotNull;
 @Setter
 @Entity
 @Table(name = "module", schema = "public")
-@NamedQueries({
-        @NamedQuery(name = "Module.findDistinctById_Idtrack", query = "select distinct m from Module m where m.id.idtrack = :idtrack")
-})
+
+//@NamedQueries({
+//        @NamedQuery(name = "Module.findDistinctById_Idtrack", query = "select distinct m from  m where m.id.idtrack = :idtrack")
+//})
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Module {
     @EmbeddedId
@@ -27,10 +28,12 @@ public class Module {
 
     @NotNull
     @Column(name = "quantitypages", nullable = false)
-    public Integer quantitypages;
+    @Type(type = "org.hibernate.type.IntegerType")
+    private Integer quantitypages;
 
     @NotNull
     @Column(name = "quantitycoins", nullable = false)
+    @Type(type = "org.hibernate.type.IntegerType")
     private Integer quantitycoins;
 
     @NotNull
