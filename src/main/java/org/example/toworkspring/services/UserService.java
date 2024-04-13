@@ -7,6 +7,8 @@ import org.example.toworkspring.repositories.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @Slf4j
 @RequiredArgsConstructor
@@ -22,5 +24,8 @@ public class UserService {
         log.info("Saving new User with email: {}", userEmail);
         userRepository.save(user);
         return true;
+    }
+    public List<AppUser> getAllUser() {
+        return userRepository.findAll();
     }
 }
