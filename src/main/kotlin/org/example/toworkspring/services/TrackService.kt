@@ -35,9 +35,10 @@ class TrackService(
             userProgressRepository.save(usersProgress)
         } else {
             val module = moduleRepository.findById_IdtrackAndId_Numberintrack(idTrack, numberModule)
+            println("module: $module")
             userProgressRepository.save(
                 Usersprogress(
-                    userRepository.getById(idUser.toLong()),
+                    userRepository.getById(idUser.toLong()).also { println("user: $it") },
                     module,
                     numberPage,
                     module.quantitypages
