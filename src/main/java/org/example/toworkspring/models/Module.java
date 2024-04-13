@@ -1,5 +1,6 @@
 package org.example.toworkspring.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.Type;
@@ -11,9 +12,10 @@ import javax.validation.constraints.NotNull;
 @Setter
 @Entity
 @Table(name = "module", schema = "public")
-@NamedQueries({
-        @NamedQuery(name = "Module.findDistinctById_Idtrack", query = "select distinct m from Module m where m.id.idtrack = :idtrack")
-})
+//@NamedQueries({
+//        @NamedQuery(name = "Module.findDistinctById_Idtrack", query = "select distinct m from  m where m.id.idtrack = :idtrack")
+//})
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Module {
     @EmbeddedId
     private ModuleId id;

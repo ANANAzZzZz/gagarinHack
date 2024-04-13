@@ -7,5 +7,4 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.ArrayList;
 
 public interface AchievementRepository extends CrudRepository<Achievement, Long> {
-
 }

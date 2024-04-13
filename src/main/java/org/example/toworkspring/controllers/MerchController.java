@@ -15,6 +15,7 @@ public class MerchController {
     private final MerchService merchService;
     @GetMapping("/merch")
     public ArrayList<Merch> getAllMerch() {
+        System.out.println(merchService.getAllMerch());
         return merchService.getAllMerch();
     }
 }
