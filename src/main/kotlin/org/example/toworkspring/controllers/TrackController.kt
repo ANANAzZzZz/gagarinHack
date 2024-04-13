@@ -41,7 +41,10 @@ class TrackController(private val trackService: TrackService) {
         @RequestParam(value = "idTrack") idTrack: Int,
         @RequestParam(value = "numberModule") numberModule: Int,
         @RequestParam(value = "numberPage") numberPage: Int,
-    ) {
-        trackService.updateProgress(idUser, idTrack, numberModule, numberPage)
+    ): Map<String, String> {
+        return trackService.updateProgress(idUser, idTrack, numberModule, numberPage)
     }
+
+    @GetMapping("/getKnowledge")
+    fun getListKnowledge() = trackService.getListKnowledge()
 }
