@@ -32,22 +32,23 @@ class TrackService(
 
     fun updateProgress(idUser: Int, idTrack: Int, numberModule: Int, numberPage: Int): Map<String, String> {
         val usersProgress = userProgressRepository.findProgress(idUser, idTrack, numberModule)
-        
-        if (usersProgress != null){
-            usersProgress.numberlastcompletepage = numberPage
-            userProgressRepository.save(usersProgress)
-        } else {
-            val module = moduleRepository.findById_IdtrackAndId_Numberintrack(idTrack, numberModule)
-            println("module: $module")
-            userProgressRepository.save(
-                Usersprogress(
-                    userRepository.getById(idUser.toLong()).also { println("user: $it") },
-                    module,
-                    numberPage,
-                    module.quantitypages
+
+        try {
+            if (usersProgress != null) {
+                usersProgress.numberlastcompletepage = numberPage
+                userProgressRepository.save(usersProgress)
+            } else {
+                val module = moduleRepository.findById_IdtrackAndId_Numberintrack(idTrack, numberModule)
+                println("module: $module")
+                userProgressRepository.save(
+                    Usersprogress(
+                        userRepository.getById(idUser.toLong()).also { println("user: $it") },
+                        module,
+                        numberPage,
+                        module.quantitypages
+                    )
                 )
             }
-
             return hashMapOf("message" to "success")
         } catch (e: Exception) {
             return hashMapOf("message" to e.message.orEmpty())
