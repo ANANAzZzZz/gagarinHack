@@ -29,10 +29,21 @@ public class Usersprogress {
 
     @NotNull
     @Column(name = "numberlastcompletepage", nullable = false)
-    private Integer numberlastcompletepage;
+    public Integer numberlastcompletepage;
 
     @NotNull
     @Column(name = "allquantitypage", nullable = false)
     private Integer allquantitypage;
 
+
+    public Usersprogress(AppUser appUser, Module module, Integer numberLastCompletePage, Integer allQuantityPage) {
+        this.iduser = appUser;
+        this.module = module;
+        this.numberlastcompletepage = numberLastCompletePage;
+        this.allquantitypage = allQuantityPage;
+    }
+
+    public Usersprogress() {
+        this(new AppUser(), new Module(), 0, 0);
+    }
 }
