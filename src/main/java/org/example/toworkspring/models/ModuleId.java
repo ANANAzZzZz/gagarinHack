@@ -3,6 +3,7 @@ package org.example.toworkspring.models;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.Hibernate;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -18,10 +19,12 @@ public class ModuleId implements Serializable {
 
     @NotNull
     @Column(name = "idtrack", nullable = false)
+    @Type(type = "org.hibernate.type.IntegerType")
     private Integer idtrack;
 
     @NotNull
     @Column(name = "numberintrack", nullable = false)
+    @Type(type = "org.hibernate.type.IntegerType")
     private Integer numberintrack;
 
     @Override

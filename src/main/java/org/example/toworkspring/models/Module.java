@@ -25,10 +25,12 @@ public class Module {
 
     @NotNull
     @Column(name = "quantitypages", nullable = false)
+    @Type(type = "org.hibernate.type.IntegerType")
     private Integer quantitypages;
 
     @NotNull
     @Column(name = "quantitycoins", nullable = false)
+    @Type(type = "org.hibernate.type.IntegerType")
     private Integer quantitycoins;
 
     @NotNull
