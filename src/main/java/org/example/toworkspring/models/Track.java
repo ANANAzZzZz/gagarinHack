@@ -1,5 +1,6 @@
 package org.example.toworkspring.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,28 +10,18 @@ import javax.validation.constraints.NotNull;
 @Getter
 @Setter
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table(name = "track", schema = "public")
 public class Track {
-
-    public Track(){
-        this(0, "", 0);
-    }
-    public Track(Integer _id, String _name, Integer _quantitymodels){
-        id = _id;
-        name = _name;
-        quantitymodels = _quantitymodels;
-    }
     @Id
     @Column(name = "id", nullable = false)
-    private Integer id;
+    private Long id;
 
     @NotNull
-    @Lob
     @Column(name = "name", nullable = false)
     private String name;
 
     @NotNull
     @Column(name = "quantitymodels", nullable = false)
     private Integer quantitymodels;
-
 }

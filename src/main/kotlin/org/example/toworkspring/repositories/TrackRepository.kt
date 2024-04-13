@@ -4,5 +4,4 @@ import org.example.toworkspring.models.Track
 import org.springframework.data.repository.CrudRepository
 
 
-interface TrackRepository: CrudRepository<Track, Long> {
-}
+interface TrackRepository: CrudRepository<Track, Long>
