@@ -1,7 +1,6 @@
 package org.example.toworkspring.services
 
 import lombok.RequiredArgsConstructor
-import org.example.toworkspring.models.Knowledge
 import org.example.toworkspring.models.Module
 import org.example.toworkspring.models.Track
 import org.example.toworkspring.models.Usersprogress

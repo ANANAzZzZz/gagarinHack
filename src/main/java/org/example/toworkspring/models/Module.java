@@ -60,7 +60,7 @@ public class Module {
     @Column(name = "idtrack_id", nullable = false)
     private Integer idTrackId;
 
-    public Module(){
+    public Module() {
         this.endcontent = "";
         this.name = "";
         this.id = new ModuleId();

@@ -13,12 +13,13 @@ public class Completesurveyitem {
     @EmbeddedId
     private CompletesurveyitemId id;
 
-//    @MapsId("idsurvey")
+    //    @MapsId("idsurvey")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumns({
             @JoinColumn(name = "iduser", nullable = false, updatable = false, insertable = false),
             @JoinColumn(name = "idsurvey", nullable = false, updatable = false, insertable = false)
-    })    private Compeletesurvey idsurvey;
+    })
+    private Compeletesurvey idsurvey;
 
     @Lob
     @Column(name = "answer")

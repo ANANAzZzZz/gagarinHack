@@ -25,6 +25,7 @@ public class UserService {
 //        userRepository.save(user);
         return true;
     }
+
     public List<AppUser> getAllUser() {
         return userRepository.findAll();
     }

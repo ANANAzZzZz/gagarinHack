@@ -1,8 +1,6 @@
 package org.example.toworkspring.repositories;
 
-import org.example.toworkspring.models.Feedback;
 import org.example.toworkspring.models.Feedbackitem;
-import org.example.toworkspring.models.Sureveyitem;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 

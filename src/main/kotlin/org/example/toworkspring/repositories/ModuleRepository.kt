@@ -4,7 +4,7 @@ import org.example.toworkspring.models.Module
 import org.springframework.data.jpa.repository.Query
 import org.springframework.data.repository.CrudRepository
 
-interface ModuleRepository: CrudRepository<Module, Long>{
+interface ModuleRepository : CrudRepository<Module, Long> {
 
     fun getModulesByIdtrack_IdEquals(idtrack: Long): List<Module>
 

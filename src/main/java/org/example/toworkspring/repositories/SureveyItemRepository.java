@@ -1,7 +1,6 @@
 package org.example.toworkspring.repositories;
 
 import org.example.toworkspring.models.Sureveyitem;
-import org.example.toworkspring.models.SureveyitemId;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 

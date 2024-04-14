@@ -12,6 +12,7 @@ import java.util.ArrayList;
 @RequiredArgsConstructor
 public class DiscountController {
     private final DiscountService discountService;
+
     @GetMapping("/discount")
     public ArrayList<Discount> getAllDiscount() {
         return discountService.getAllDiscount();

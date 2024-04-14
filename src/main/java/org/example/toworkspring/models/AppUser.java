@@ -38,7 +38,7 @@ public class AppUser {
     @Type(type = "org.hibernate.type.TextType")
     private String hashpassword;
 
-    public AppUser(){
+    public AppUser() {
         this.id = 0L;
         this.name = "";
         this.lastName = "";

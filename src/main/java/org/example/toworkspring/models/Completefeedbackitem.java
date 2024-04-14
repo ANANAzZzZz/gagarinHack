@@ -13,7 +13,7 @@ public class Completefeedbackitem {
     @EmbeddedId
     private CompletefeedbackitemId id;
 
-//    @MapsId("idfeedback")
+    //    @MapsId("idfeedback")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumns({
             @JoinColumn(name = "iduser", nullable = false, updatable = false, insertable = false),

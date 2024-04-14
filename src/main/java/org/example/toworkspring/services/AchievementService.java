@@ -13,6 +13,7 @@ import java.util.ArrayList;
 @RequiredArgsConstructor
 public class AchievementService {
     private final AchievementRepository achievementRepository;
+
     public ArrayList<Achievement> getAllAchievement() {
         return (ArrayList<Achievement>) achievementRepository.findAll();
     }

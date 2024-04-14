@@ -13,6 +13,7 @@ import java.util.ArrayList;
 @RequiredArgsConstructor
 public class AchievementController {
     private final AchievementService achievementService;
+
     @GetMapping("/achievements")
     public ArrayList<Achievement> getAllAchievement() {
         return achievementService.getAllAchievement();

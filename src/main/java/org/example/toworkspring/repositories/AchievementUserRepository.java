@@ -1,6 +1,5 @@
 package org.example.toworkspring.repositories;
 
-import org.example.toworkspring.models.Achievement;
 import org.example.toworkspring.models.Achievementuser;
 import org.example.toworkspring.models.AppUser;
 import org.springframework.data.repository.CrudRepository;
