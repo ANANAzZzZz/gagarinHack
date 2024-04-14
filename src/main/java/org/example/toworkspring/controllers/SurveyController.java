@@ -16,7 +16,7 @@ public class SurveyController {
     private final SurveyService surveyService;
 
     @GetMapping("/surveys")
-    public ArrayList<Survey> getAllAchievement() {
+    public ArrayList<Survey> getSurveys() {
         return surveyService.getAllSurveys();
     }
 
