@@ -20,7 +20,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
 
-                .antMatchers("/", "/registration", "/getTracks", "/test", "/user_achievement/{id}", "/getModules", "/getAllUsers", "/merch", "/surveys", "/achievements", "/getPages", "/updateProgress", "/getKnowledge", "/getSurveyItemsById", "/rating", "/discount")
+                .antMatchers("/", "/registration", "/getTracks", "/test", "/user_achievement/{id}", "/getModules", "/getAllUsers", "/merch", "/surveys", "/achievements", "/getPages", "/updateProgress", "/getKnowledge", "/getSurveyItemsById", "/rating", "/discount", "/feedbacks", "/getFeedbacksItemsById")
 
                 .permitAll()
                 .anyRequest().authenticated()
