@@ -3,6 +3,7 @@ package org.example.toworkspring.models;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.Hibernate;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -17,6 +18,7 @@ public class SureveyitemId implements Serializable {
     private static final long serialVersionUID = -6953788121200088006L;
     @NotNull
     @Column(name = "idsurvey", nullable = false)
+    @Type(type = "org.hibernate.type.IntegerType")
     private Integer idsurvey;
 
     @NotNull
